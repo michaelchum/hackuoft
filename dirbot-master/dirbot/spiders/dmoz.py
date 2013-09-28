@@ -22,15 +22,16 @@ class DmozSpider(BaseSpider):
         """
         hxs = HtmlXPathSelector(response)
         #sites = hxs.select('//ul[@class="directory-url"]/li') 
-        sites = hxs.select('//ol[@class="threads"]/li')
+        sites = hxs.select('//ul[@class="threads_list"]/li')
         #sites2 = hxs.select('//a[@class="title threadtitle_unread"]/li') 
 
         postList = PostList()
 
         for site in sites:
-            post = Post(site.select('a[@class="title threadtitle_unread"]/@href').extract(), 
-                site.select('a[@class="title threadtitle_unread"]/@href').extract())
+            post = Post(site.select('a[@class="thread_title"]/text()').extract(), 
+                site.select('a/@href').extract())
             #postList.addPost(post)
             print post.title
+            print post.url
 
         #RFScraper(postList)

@@ -7,8 +7,8 @@ class PostList:
     emails will be sent to the corresponding
     """
 
-    def __init__(self, post):
-        self.L = [post]
+    def __init__(self):
+        self.L = []
 
     def __iter__(self):
         return iter(self.L)

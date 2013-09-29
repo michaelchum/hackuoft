@@ -41,5 +41,6 @@ def mailAll(users):
    for x in range (len(users)):
       H = users[x].post_list.l
       for y in range (len(H)):
-         mail(users[x].key, "You deal has arrived!", H[y].title)
+         body = "%s\n%s" % (H[y].title,H[y].url)
+         mail(users[x].key, "Your deal has arrived!", body)
 

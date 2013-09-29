@@ -1,6 +1,5 @@
 __author__ = 'ivanfer'
 
-
 class Post:
     """
     we want scrapy to give us objects like these that we can iterate over

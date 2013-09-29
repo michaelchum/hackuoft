@@ -24,11 +24,11 @@ class RFScrape:
             for s in split:
                 if s in keywords.keys():
                     for u in keywords[s]:
-                        assert isinstance(u,Post)
-                        if not dbc.addrelation(u, p):
-                            if not users.contains(u):
+                        user = User.init(u)
+                        if not dbc.addrelation(user, p):
+                            if not users.contains(user):
                                 u.addPost(p)
-                                users.append(u)
+                                users.append(user)
 
         return users
         #all new posts in db associated to an email

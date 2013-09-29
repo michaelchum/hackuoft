@@ -12,5 +12,8 @@ class User(object):
 
         @param post: a post to add to this user.
         """
+    def key(self):
+        return self.key
 
+    def post_list(self):
         self.post_list.append(post)

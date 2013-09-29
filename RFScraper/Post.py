@@ -15,3 +15,9 @@ class Post:
     def __eq__(self, other):
         return self.url == other.url
 
+    def title(self):
+        return self.title
+
+    def url(self):
+        return self.url
+

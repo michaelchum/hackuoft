@@ -16,16 +16,21 @@ class RFScrape:
         scraper = Scraper(RFScrape.hard_url)
         newposts = scraper.scrape()
         keywords = dbc.getkeywords() #assuming a string:[string] dictionary
+        users = []
 
-        for (p in newposts):
+        for p in newposts:
             assert isinstance(p.title().split, dict)
             split = p.title().split()
-            for (s in split):
+            for s in split:
                 if s in keywords.keys():
-                    for (u in keywords[s]):
+                    for u in keywords[s]:
                         assert isinstance(u,Post)
                         if not dbc.addrelation(u, p):
-                            u.addPost(p)
+                            if not users.contains(u):
+                                u.addPost(p)
+                                users.append(u)
+
+        return users
         #all new posts in db associated to an email
 
 

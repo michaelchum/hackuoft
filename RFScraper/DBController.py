@@ -30,6 +30,6 @@ class DBController:
 
         """
         try:
-            self.cur.execute(DBController.insert_temp, (user.key(), post.title()))
+            self.c.execute(DBController.insert_temp, (user.key(), post.title()))
         except sqlite3.IntegrityError:
             pass

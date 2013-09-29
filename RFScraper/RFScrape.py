@@ -27,7 +27,7 @@ class RFScrape:
                         user = User.init(u)
                         if not dbc.addrelation(user, p):
                             if not users.contains(user):
-                                u.addPost(p)
+                                user.addPost(p)
                                 users.append(user)
 
         return users

@@ -1,16 +1,23 @@
-__author__ = 'ivanfer'
+from bs4 import BeautifulSoup
+import urllib2
+import re
+import unicodedata
+ 
+urlList=[]
+urlList.append("http://forums.redflagdeals.com/hot-deals-f9/")
 
+for x in range(9):
+	urlList.append("http://forums.redflagdeals.com/hot-deals-f9/%d/" % (x+2))
 
-class Scraper(object):
-    """
-        all scrapy done in here. dont know what those objects look like so i haven't instantiated them.
-    """
-    home_url = ''
+for x in range(len(urlList)):
+	content = urllib2.urlopen(urlList[x]).read()
+	soup = BeautifulSoup(content)
 
-    def __init__(self, url):
-        self.home_url = url
-
-    def scrape(self, scraped_title,scraped_url):
-        myPost = Post(scraped_title, scraped_url)
+	for link in soup.findAll(True, {'class': re.compile(r'\btitle\b')}):
+	    url = "http://forums.redflagdeals.com" + link.get('href')
+	    title = link.get_text()
+	    title = title.replace(u'\xae', u' ')
+	    print url
+	    print title
 
 

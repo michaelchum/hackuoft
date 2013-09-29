@@ -37,5 +37,9 @@ def mail(to, subject, text):
    # Should be mailServer.quit(), but that crashes...
    mailServer.close()
 
-def mailAll(to, subject, text):
+def mailAll(users):
+   for x in range (len(users)):
+      H = users[x].L
+      for y in range (len(H)):
+         mail(users[x].key, "You deal has arrived!", H[y])
 

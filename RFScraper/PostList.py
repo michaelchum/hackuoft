@@ -8,15 +8,15 @@ class PostList:
     """
 
     def __init__(self):
-        self.L = []
+        self.l = []
 
     def __iter__(self):
-        return iter(self.L)
+        return iter(self.l)
 
     def addPost(self, post):
-        if post not in self.L:
-            self.L.append(post)
+        if post not in self.l:
+            self.l.append(post)
 
     def next(self):
-        pass
+        self.l.next()
 

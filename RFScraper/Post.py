@@ -1,5 +1,6 @@
 __author__ = 'ivanfer'
 
+
 class Post:
     """
     we want scrapy to give us objects like these that we can iterate over
@@ -13,4 +14,10 @@ class Post:
 
     def __eq__(self, other):
         return self.url == other.url
+
+    def title(self):
+        return self.title
+
+    def url(self):
+        return self.url
 

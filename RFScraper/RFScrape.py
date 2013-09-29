@@ -24,7 +24,7 @@ class RFScrape:
             for s in split:
                 if s in keywords.keys():
                     for u in keywords[s]:
-                        user = User.init(u)
+                        user = User(u)
                         if not dbc.addrelation(user, p):
                             if not users.contains(user):
                                 user.addPost(p)

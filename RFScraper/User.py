@@ -9,10 +9,7 @@ class User:
         self.post_list = PostList()
 
     def addPost(self, post):
-        """
-
-        @param post: a post to add to this user.
-        """
+    
         self.post_list.append(post)
 
     def key(self):

@@ -1,6 +1,5 @@
 
-
-class notify:
+class Notify:
 
     def __init__(self, users):
         self.users = users

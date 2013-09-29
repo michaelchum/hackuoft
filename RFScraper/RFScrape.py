@@ -19,7 +19,7 @@ class RFScrape:
         users = []
 
         for p in newposts:
-            assert isinstance(p.title().split, dict)
+            #assert isinstance(p.title().split, dict)
             split = p.title().split()
             for s in split:
                 if s in keywords.keys():

@@ -33,20 +33,75 @@
 
       <!-- Begin page content -->
 
+      <div class="row-fluid">
+   <div class="span12 pagination-centered"><img src="header3.png" alt="header" /></div>
+</div>
+
       <div class="container">
-        <div class="page-header">
-          <h1>Translator</h1>
+        <!-- <div class="page-header">
+          <h1>Sales Alert</h1>
+
+          -->
         </div>
-          <p class="lead" style="text-align: center">Choose a language</p>
+
+        <br>
+
+
+          <p class="lead" style="text-align: center">Enter products you want for sale!</p>
         <div style="text-align: center">
-            <select class="container" class="form-control">
-              <option>French</option>
-              <option>Arabic</option>
-            </select>
 
             <div class="page-header">
-              <p class="lead" style="text-align: center">Input a text to resolve the closest articles in english</p>
-              <input class="form-control" id="focusedInput" type="text" value="Article here...">
+              <input type="hidden" name="count" value="1" />
+            <div class="control-group" id="fields">
+
+           <div class="controls" id="profs"> 
+             <div class="input-append">
+               <input autocomplete="off" class="span3" id="field1" name="prof1" type="text" placeholder="Products keywords" data-provide="typeahead" data-items="8" 
+                data-source='["Aardvark","Beatlejuice","Capricorn","Deathmaul","Epic"]'/>
+                <button id="b1" onClick="addFormField()" class="btn btn-info" type="button">+</button>
+             </div>
+             <br />
+           </div>
+         </div>
+
+         <br>
+
+<script src="jquery-1.10.2.min.js"></script>
+ 
+<script type="text/javascript">
+        var next = 1;
+        var fields = new Array();
+        function addFormField(){
+            var addto = "#field" + next;
+            fields.push($("#field" + next).get(0));
+            next++;
+
+            var newIn = '<br /><br /><input autocomplete="off" class="span3" id="field' + next + '" name="field' + next + '" type="text" data-provide="typeahead" data-items="8">';
+            var newInput = $(newIn);
+          $(addto).after(newInput);
+
+            $("#field" + next).attr('data-source',$(addto).attr('data-source'));
+
+            $("#count").val(next);  
+        }
+</script>
+
+
+
+
+              <div class="thumbnail center well well-small text-center">
+                <h2>Notification</h2>
+                  <p>Subscribe to our feed and save time, save money.</p>
+                  <form action="" method="post">
+                    <div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span>
+                        <input type="text" id="" name="" placeholder="your@email.com">
+                    </div>
+                    <br />
+                    <input type="submit" value="Keep me updated!" class="btn btn-large" />
+                  </form>
+                </div>
+
+
             </div>
         </div>
       </div>

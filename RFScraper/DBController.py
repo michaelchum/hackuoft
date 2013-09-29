@@ -8,7 +8,7 @@ class DBController:
     interface between RFAlert and database
     """
 
-    insert_temp = 'INSERT INTO RFPost VALUES (? , ? , ?)'
+    insert_temp = 'INSERT INTO RFPost VALUES (? , ?)'
 
     def __init__(self):
         self.conn = sqlite3.connect('miuDB.db')

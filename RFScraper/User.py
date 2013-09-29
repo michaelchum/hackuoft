@@ -1,7 +1,8 @@
 __author__ = 'ivanfer'
 
+from . import PostList
 
-class User(object):
+class User:
 
     def __init__(self, email):
         self.key = email
@@ -12,8 +13,11 @@ class User(object):
 
         @param post: a post to add to this user.
         """
+        self.post_list.append(post)
+
     def key(self):
         return self.key
 
     def post_list(self):
-        self.post_list.append(post)
+        return self.post_list
+

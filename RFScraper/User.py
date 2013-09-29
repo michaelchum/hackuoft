@@ -1,6 +1,6 @@
 __author__ = 'ivanfer'
 
-from . import PostList
+from PostList import PostList
 
 class User:
 
@@ -10,7 +10,7 @@ class User:
 
     def addPost(self, post):
     
-        self.post_list.append(post)
+        self.post_list.addPost(post)
 
     def key(self):
         return self.key

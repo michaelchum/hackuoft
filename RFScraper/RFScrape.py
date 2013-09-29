@@ -2,36 +2,39 @@
 
 # all imports are missing everywhere
 
-from RFScraper import *
+from PostList import *
+from Post import Post
+from Scraper import scrape
+from User import User
 
-class RFScrape:
-    """# this class will contain the controller to scrapy
-    # and maintain all of the Posts in a datastructure.
-    # returns the result of scraping to RFAlert.
-    """
-    hard_url = "forums.redflagdeals.com/hot-deals-f9/"
 
-    def scrapeRFD(dbc):
+"""# this class will contain the controller to scrapy
+# and maintain all of the Posts in a datastructure.
+# returns the result of scraping to RFAlert.
+"""
 
-        scraper = Scraper(RFScrape.hard_url)
-        newposts = scraper.scrape()
-        keywords = dbc.getkeywords() #assuming a string:[string] dictionary
-        users = []
+def scrapeRFD(dbc):
 
-        for p in newposts:
-            #assert isinstance(p.title().split, dict)
-            split = p.title().split()
-            for s in split:
-                if s in keywords.keys():
-                    for u in keywords[s]:
-                        user = User(u)
-                        if not dbc.addrelation(user, p):
-                            if not users.contains(user):
-                                user.addPost(p)
-                                users.append(user)
+    newposts = scrape()
+    #keywords = dbc.getkeywords() #assuming a string:[string] dictionary
+    keywords = {"Samsung":["usman.ehtesham@mail.mcgill.ca","sanchezivanf@gmail.com","michael.ho@mail.mcgill.ca"]}
+    users = []
 
-        return users
-        #all new posts in db associated to an email
+    for p in newposts:
+        #assert isinstance(p.title().split, dict)
+        split = p.title
+        split = split.split()
+        for s in split:
+            if s in keywords.keys():
+                for u in keywords[s]:
+                    user = User(u)
+                    #if not dbc.addrelation(user, p):
+                    if not user in users:
+                        user.addPost(p)
+                        users.append(user)
+
+    return users
+    #all new posts in db associated to an email
 
 
 

@@ -39,7 +39,7 @@ def mail(to, subject, text):
 
 def mailAll(users):
    for x in range (len(users)):
-      H = users[x].L
+      H = users[x].post_list.l
       for y in range (len(H)):
-         mail(users[x].key, "You deal has arrived!", H[y])
+         mail(users[x].key, "You deal has arrived!", H[y].title)
 

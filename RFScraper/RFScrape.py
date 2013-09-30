@@ -16,8 +16,8 @@ from User import User
 def scrapeRFD(dbc):
 
     newposts = scrape()
-    #keywords = dbc.getkeywords() #assuming a string:[string] dictionary
-    keywords = {"Samsung":["usman.ehtesham@mail.mcgill.ca","sanchezivanf@gmail.com","michael.ho@mail.mcgill.ca"]}
+    keywords = dbc.getkeywords() #assuming a string:[string] dictionary
+    #keywords = {"Samsung":["usman.ehtesham@mail.mcgill.ca","sanchezivanf@gmail.com","michael.ho@mail.mcgill.ca"]}
     users = []
 
     for p in newposts:
@@ -28,10 +28,10 @@ def scrapeRFD(dbc):
             if s in keywords.keys():
                 for u in keywords[s]:
                     user = User(u)
-                    #if not dbc.addrelation(user, p):
-                    if not user in users:
-                        user.addPost(p)
-                        users.append(user)
+                    if not dbc.addrelation(user, p):
+                        if not user in users:
+                            user.addPost(p)
+                            users.append(user)
 
     return users
     #all new posts in db associated to an email

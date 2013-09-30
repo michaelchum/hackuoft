@@ -11,8 +11,8 @@ def scrape():
 	urlList=[]
 	urlList.append("http://forums.redflagdeals.com/hot-deals-f9/")
 
-	for x in range(9):
-		urlList.append("http://forums.redflagdeals.com/hot-deals-f9/%d/" % (x+2))
+	#for x in range(9):
+		#urlList.append("http://forums.redflagdeals.com/hot-deals-f9/%d/" % (x+2))
 
 	postList = PostList()
 
